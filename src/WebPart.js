@@ -18,7 +18,12 @@ export default class WebbPart extends React.Component{
         }
 
     }
+  shouldComponentUpdate(nextProps, nextState){
+        console.log('shouldComponentUpdate'+nextProps+nextState);
     
+  return(nextState.bookmarks ==this.state.bookmarks)
+            } 
+  
      componentDidMount(){
      const prevBookmark=this.state.bookmarks;
      
@@ -53,7 +58,7 @@ export default class WebbPart extends React.Component{
         });
            return (
                <div>
-                    <h1>Webb Part</h1>     
+                    <h1>Webb Part!!</h1>     
                     <Link to={'settingsPart'}> <h1>Settings</h1></Link>
                               {books}
                 <Button variant="raised" color="primary"> <Link to={'/addBookMark'}>Add</Link></Button>
