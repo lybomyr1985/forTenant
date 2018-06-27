@@ -1,8 +1,150 @@
+ .container{
+     height: 1200px;
+ }
 .settings-nav {
-    background: rgb(235, 231, 231);
+    float: left;
+     
     font-size: 30px;
     width:  20%;
+    height: 1200px;
      
 } 
-       
-       
+  .head{ 
+     display: flex;
+     padding-top: 50px;
+     padding-bottom: 50px;
+     border: 1px solid;
+} 
+.head h1{ 
+    padding-left: 5%;
+} 
+.web{
+ padding-right: 6%;
+ padding-left: 2%;
+}
+.logo{
+    position: relative;
+    top: -18px;
+    border:1px solid;
+    border-radius: 50%;
+    padding: 20px 20px 20px 20px;
+} 
+.search-bookmarks{
+    position: relative;
+     padding-right: 3%;
+     padding-left: 3%;
+     bottom: -11px;
+}
+.search-bookmarks input{
+    position: relative;
+     }
+.settingsPart h1{
+    padding-left: 40%;
+}
+ 
+.hidebook{
+    display: none;
+}
+.head .logo  img{
+    width: 29px;
+    height: 38px;
+}
+
+.books{
+    position: relative;
+    border: 1px solid rgba(0,0,0,.1);;
+    bottom: -55px;
+}
+.books-link{
+    display:flex;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+.addBookMark{
+    position: relative;
+    bottom: -69px;
+    left: 50px;
+}
+ 
+.setting-tools{
+    padding-left: 20%;
+}
+.setting-people{
+    background-color: rgb(235, 231, 231);
+    margin-bottom: 2%;
+    -webkit-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+}
+ 
+.setting-theme{
+    padding-left: 50px;
+    float: left;
+    width: 80%;
+    background-color: rgb(235, 231, 231);
+    margin-bottom: 2%;
+    -webkit-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+}
+.people-link_edite{
+    position: relative;
+    bottom: -48px;
+}
+ 
+ .apper-fontsize{
+display: flex;
+ }
+ .apper-changeThem{
+padding-left: 5%;
+display: flex;
+}
+ .apper-zoom{
+    display: flex;
+}
+ 
+.apper-changeThem .apper-blok_white{
+ padding-left: 20px;
+}
+.setting-switch{
+    display: flex;
+}
+.setting-switch_elem{
+    padding-left:70%; 
+}
+.selectFont{
+    padding-left:74%; 
+}
+.selectZoom{
+    padding-left:70%; 
+    padding-bottom: 2%;
+}
+.sett-printing{
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    width: 80%;
+    background-color: rgb(235, 231, 231);
+    margin-bottom: 2%;
+    -webkit-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+}
+.sett-reset{
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    width: 80%;
+    background-color: rgb(235, 231, 231);
+    margin-bottom: 2%;
+    -webkit-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);;
+}
+
+.edite-book_link{
+    position: relative;
+    bottom: -33px;
+}

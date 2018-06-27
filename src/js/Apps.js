@@ -6,20 +6,14 @@ import AddBookMark from '../Bookmark/addBookmark'
 import AddPeople from '../People/addPeople' 
 import EditeBookMark from '../Bookmark/editeBookmark'
 import EditePeople from '../People/editePeople'
+import './index.css'
 
 export default class Apps extends React.Component{
-    constructor(props){
-            super(props);
-            this.state={
-                name: ''
-            }
-    }    
-     
+   
      render(){
            return (
-               <div>
-                    <div className="app">Hello {this.state.name} </div>
-                         
+               <div className="container">
+                   
                       <Route exact  path= "/" component={WebPart}/>                       
                       <Route path= "/addBookMark"    component={AddBookMark} />
                       <Route   path= "/editeBookMark/:id"  render ={props=> <EditeBookMark {...props} /> } />

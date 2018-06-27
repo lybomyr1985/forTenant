@@ -1,0 +1,45 @@
+.black-theme{
+    background-color: #282a36;
+    color: white;
+}
+.hidebook{
+    display: none;
+}
+
+.small{
+	font-size: 0.8em;
+}
+.med{
+	font-size: 1.0em;
+ 
+}
+.large{
+    font-size: 1.9em
+}
+
+.z75{
+    -webkit-transform:scale(0.75);
+    -ms-transform    :scale(0.75);
+     transform:       scale(0.75);
+    -webkit-transform-origin: scale(0);  
+    -ms-transform-origin:     scale(0);
+          transform-origin:   scale(0);
+}
+
+.z100{
+    -webkit-transform:scale(1.0);
+    -ms-transform    :scale(1.0);
+     transform:       scale(1.0);
+    -webkit-transform-origin: scale(0);  
+    -ms-transform-origin:     scale(0);
+          transform-origin:   scale(0);
+}
+
+.z150{
+    -webkit-transform:scale(1.5);
+    -ms-transform    :scale(1.5);
+     transform:       scale(1.5);
+    -webkit-transform-origin: scale(0);  
+    -ms-transform-origin:     scale(0);
+          transform-origin:   scale(0);
+}

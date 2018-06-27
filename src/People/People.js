@@ -1,12 +1,18 @@
 import React from 'react'
-const People= ({image,userName,peopleUrl,id})=>{
+import Avatar from '@material-ui/core/Avatar';
+
+const People= ({img,userName,email,id})=>{
     return(
          
-       <div className="bookmark">
-           <img src={image}/>     
-           <div className="userName">{userName}</div>
-           <div className="people-url">{peopleUrl}</div>
-           <div>{id}</div>
+       <div className="book-people">
+           <img className="avatar" src={img}/>   
+           <div className="atr-people">  
+                <div className="userName">{userName}</div>
+                <div className="people-url">{email}</div>
+           
+           
+           </div>
+           <div className="people-id">{id}</div>
        </div>
       )
     }

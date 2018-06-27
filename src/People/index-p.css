@@ -1,3 +1,49 @@
 .clicAva{
     border: 1px solid red
 }
+.people-id{
+    visibility: hidden;
+}
+.avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 20px 20px 20px 20px;
+}
+.book-people{
+    display: flex;
+    width: 60%;
+    margin-right: 226px;
+}
+
+.people-link{
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+.userName{
+ font-size: 1.2em;
+ padding-left: 1%
+}
+.atr-people{
+    bottom: -28px;
+    position: relative;
+    bottom: -38px;
+}
+.butt-addBook{
+    position: relative;
+    left: 42px;
+}
+.avatar-block_img{
+    width: 120px;
+    height: 120px;
+    margin-left: 3%;
+    
+    padding: 4px 4px;
+}
+.avatar-block_img:hover{
+    opacity: 0.6;
+}
+.avatar-block{
+     
+}

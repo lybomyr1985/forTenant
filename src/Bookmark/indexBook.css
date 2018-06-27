@@ -1,0 +1,22 @@
+.bookmark-id{
+    visibility: hidden;
+}
+.bookmark-url{
+    visibility: hidden;
+}
+.bookmark{
+  
+    position: relative;
+    width: 70%;
+    bottom: -22px;
+}
+  
+.butt-addBook{
+
+}
+.base-addBookmark{
+    bottom: -42%;
+    position: relative;
+ 
+    padding-left: 44%;
+}
