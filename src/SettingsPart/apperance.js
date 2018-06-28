@@ -1,5 +1,4 @@
 import React from 'react'
- 
 import './setting.css'
 import $ from 'jquery'
 
@@ -9,9 +8,7 @@ export default class Apperance extends React.Component{
     changeThemeBlack(e){
         const target=e.target.value;   
         $('.container').addClass("black-theme");
-               
-       
-      
+            
     }
     changeThemeWhite(e){        
         $('.container').removeClass("black-theme");    
@@ -37,9 +34,7 @@ export default class Apperance extends React.Component{
                       </div>    
                       <hr/>       
                 </div>
-                    
-               
-                
+                              
            )
        }
    }

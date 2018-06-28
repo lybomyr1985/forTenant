@@ -9,10 +9,15 @@ export default class AddBookMark extends React.Component{
     componentDidMount() {
         this.fire = database.ref().child('bookmarks')
       }
-      componentWillUnMount() {
-       fire.ref().off();
-         
-    }
+      
+    componentWillUnMount() {
+        console.log(  database.ref().off());
+        database.ref().off();
+         }  
+         componentWillUnMount() {
+            fire.ref().off();
+           
+         }
 handleSubmit(event){
 const valEmtyString="*Empty area is not allow";
 const valIncorUrl="*Incorrect url";
@@ -20,8 +25,8 @@ const valIncorUrl="*Incorrect url";
 
  const booktitle=this.inputT.value;
 const bookurl=this.inputU.value;
- const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
- console.log(booktitle,bookurl);
+ const pattern = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+ 
  if(booktitle==""){
      $('.validTitle').text(valEmtyString).css({color:'red'});
      $('.inTitle').focus();
@@ -44,25 +49,23 @@ const bookurl=this.inputU.value;
 }else if(bookurl!==""){
     $('.validUrl').remove();
     $('.inBookmark').focus();
-    console.log('Ok');
-    
+    console.log('title'+this.inputU.value);
+ 
    this.fire.push({
-    booktitle:booktitle,
-    bookurl:bookurl
+    booktitle:this.inputT.value,
+    bookurl:this.inputU.value
 })
-this.props.history.push('/');
- }
+    this.props.history.push('/');
+      }
  
  
-  /*
- */
-}
+  }
      render(){
          
            return (
                <div className="base-addBookmark">
                     New BookMark<br/><br/>
-                    
+                    <div className="base-edite-input"> 
                    <div > 
                         <div>BookMark Title</div>
                         <input type="text"    className="inTitle" ref={input=>this.inputT=input}/> 
@@ -70,9 +73,10 @@ this.props.history.push('/');
                   </div>  
                     <div>
                      <div>BookMark Url</div> 
-                      <input type="text"  className="inBookmark" ref={input=>this.inputU=input}   /> 
+                      <input type="text"  className="inBookmark" ref={input=>this.inputU=input}/> 
                       <div className="validUrl"> </div>
                    </div>
+                    </div>
                     <br/>
                       <Button color="secondary" ><Link  to={'/'}>Cancel</Link>     </Button> 
                       <Button color="success" className="butt-addBook" onClick={this.handleSubmit.bind(this)}>Send</Button>        

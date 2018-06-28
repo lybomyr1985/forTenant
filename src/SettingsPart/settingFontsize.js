@@ -34,19 +34,10 @@ export default class ChangeFont extends React.Component{
             default:
               alert( 'Я таких значений не знаю' );
           }	
-          
-          
+           
     }
-    
-     
-       
-     
-     
-      
      render(){
-        
-          
-      return (
+          return (
              <div className="apper-fontsize">
                   <div> Font size </div>
                <div className="selectFont">

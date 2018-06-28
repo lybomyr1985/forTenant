@@ -23,7 +23,6 @@ export default class Resset extends React.Component{
 
                 </div>
                       
-                
            )
        }
    }

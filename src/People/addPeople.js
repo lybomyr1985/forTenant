@@ -3,7 +3,7 @@ import React from 'react'
  import {database} from '../Firebass/db_config'
 import './index-p.css'
 import $ from "jquery";
-import { Button } from 'reactstrap';
+import { Button,Input } from 'reactstrap';
 
 export default class AddPeople extends React.Component{
     constructor(props){
@@ -25,21 +25,18 @@ const email=this.inputEP.value;
 const img=this.state.img
 const valEmtyString="*Empty area is not allow";
 const valIncorUrl="*Incorrect e-mail";
- //event.preventDefault();
+ 
 
- const patternP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+ const patternP =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
  
  if(username==""){
      $('.validUserName').text(valEmtyString).css({color:'red'});
      $('.inTitleP').focus();
-   //  console.log('validTitle');
-     console.log($('.validUserName'));
-     return false
-  
+   
  }else if(username!==""){
     $('.validUserName').remove();
     $('.inTitleP').focus();
-    console.log('Ok');
+  
  }
   if(email==""){
      $('.validEmail').text(valEmtyString).css({color:'red'});
@@ -55,9 +52,9 @@ const valIncorUrl="*Incorrect e-mail";
  console.log('State'+this.state.img );
  
 this.fire.push({
-    img: img,
-    username: email,
-    url: username
+    img: this.state.img,
+    username: this.inputP.value,
+    email: this.inputEP.value
 
 })
  
@@ -70,28 +67,15 @@ this.props.history.push('/settingsPart');
    $(imgSrc).click(function (e) {
     $(this).addClass("clicAva").siblings().removeClass("clicAva");
     });
-    console.log('e.target[i]'+ $(imgSrc))   
- 
-
- 
-//imgSrc.classList.add("clicAva");
-
-     this.setState({
+    
+      this.setState({
          img: e.target.attributes.src.value
      })
           
       }
 
      render(){   
-         /*
-                <label>User Name <input type="text" ref={input=>this.inputP=input}    /> <br/><br/></label>
-                <label>User e-mail <br/> <input type="text" ref={input=>this.inputEP=input}   /></label><br/><br/>
-                       <button onClick={this.handleSubmitP.bind(this)}>Add </button>
-                    <br/>
-                            
-                    <button ><Link  to={'/'}>Cancel</Link>     </button>*/
-   /*  
-                   */
+         
          return (
                <div>
                    <h3> New People</h3><br/><br/>
@@ -110,16 +94,18 @@ this.props.history.push('/settingsPart');
                     alt="Card image cap" className="avatar-block_img" />
 
                 </div>  
-                <div>  
+                <div> 
+                 <div className="base-edite-input_people">
                 <div > 
                         <div>UserName</div>
                         <input type="text"    className="inTitleP" ref={input=>this.inputP=input}/> 
                         <div className="validUserName"> </div>
                 </div>  
                     <div>
-                     <div>Pepole e-mail</div> 
-                      <input type="text"  className="inPeople" ref={input=>this.inputEP=input}   /> 
+                     <div>People e-mail</div> 
+                      <input type="text"  className="inPeople" ref={input=>this.inputEP=input}/> 
                       <div className="validEmail"> </div>
+                   </div>
                    </div>
                     <br/>
                     

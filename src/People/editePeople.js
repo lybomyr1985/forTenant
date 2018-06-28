@@ -2,9 +2,10 @@ import React from 'react'
  import {Link} from 'react-router-dom'
  import {database} from '../Firebass/db_config'
 import './index-p.css'
-import $ from "jquery";
-import {Input} from 'reactstrap'
-import { Button } from 'reactstrap';
+import $ from "jquery" 
+ 
+import { Button } from 'reactstrap' 
+
 export default class EditePeople extends React.Component{
     constructor(props){
         super(props); 
@@ -14,11 +15,9 @@ export default class EditePeople extends React.Component{
            username:''
            
          }
- 
-     }
+      }
     componentDidMount() {
-
-        
+  
         database.ref().child(`people/${this.props.match.params.id}`).on('value', snap=>{   
            
             this.setState({
@@ -32,29 +31,67 @@ export default class EditePeople extends React.Component{
       }
  
 handleSubmitP(event){
-    
-    database.ref().child(`people/${this.props.match.params.id}`)
+     
+const valEmtyString="*Empty area is not allow";
+const valIncorUrl="*Incorrect e-mail";
+const username=this.editeinputP.value;
+const email=this.editeinputEP.value;
+ 
+
+ const patternP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+     
+                       if(username==""){
+                        $('.validUserName').text(valEmtyString).css({color:'red'});
+                        $('.inTitleP').focus();
+                    
+                        console.log($('.validUserName'));
+                        return false
+                     
+                    }else if(username!==""){
+                       $('.validUserName').remove();
+                       $('.inTitleP').focus();
+                       console.log('Ok');
+                    }
+                     if(email==""){
+                        $('.validEmail').text(valEmtyString).css({color:'red'});
+                       $('.inPeople').focus() ;
+                    }else if(!patternP.test(email)){
+                       $('.validEmail').text(valIncorUrl).css({color:'red'});
+                       $('.inPeople').focus() ;
+                      
+                   }else if(email!==""){
+                       $('.validEmail').remove();
+                       $('.inPeople').focus();
+                       console.log('Ok');
+                       console.log("user+e"+username,email);
+                    database.ref().child(`people/${this.props.match.params.id}`)
                        .update({
                            img:this.state.img,
                            username: this.editeinputP.value,
-                           email:this.editeinputEP.value
-                          
-                           
-                           });    
-      this.props.history.push('/settingsPart'); 
-                       /* */      }
-
+                           email: this.editeinputEP.value
+                                               
+                           }); 
+                    this.props.history.push('/settingsPart');    
+                         /* */   
+                     }
+   
+     }
+   
+ 
+    
+                  
+                   
 onChangeP(value){
    this.setState({
        username: value
   });
-  console.log(this.state.url);
+  
 }
 onChangeU(value){
    this.setState({
     email: value
   });
-  console.log(this.state.username);
+   
 }
    choseAvatar(e){
    var imgSrc=e.target;
@@ -62,58 +99,20 @@ onChangeU(value){
    $(imgSrc).click(function (e) {
     $(this).addClass("clicAva").siblings().removeClass("clicAva");
     });
-    console.log('e.target[i]'+ $(imgSrc))   
- 
-
- 
-//imgSrc.classList.add("clicAva");
-const valEmtyString="*Empty area is not allow";
-const valIncorUrl="*Incorrect e-mail";
- //event.preventDefault();
-
- const patternP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
- 
- if(username==""){
-     $('.validUserName').text(valEmtyString).css({color:'red'});
-     $('.inTitleP').focus();
-   //  console.log('validTitle');
-     console.log($('.validUserName'));
-     return false
-  
- }else if(username!==""){
-    $('.validUserName').remove();
-    $('.inTitleP').focus();
-    console.log('Ok');
- }
-  if(email==""){
-     $('.validEmail').text(valEmtyString).css({color:'red'});
-    $('.inPeople').focus() ;
- }else if(!patternP.test(email)){
-    $('.validEmail').text(valIncorUrl).css({color:'red'});
-    $('.inPeople').focus() ;
-   
-}else if(email!==""){
-    $('.validEmail').remove();
-    $('.inPeople').focus();
-    console.log('Ok');
- console.log('State'+this.state.img );
- 
- 
-     this.setState({
+    
+      this.setState({
          img: e.target.attributes.src.value
      }) 
     }
-      }
+    componentWillUnMount() {
+        
+        database.ref().off();
+         
+    }  
+      
 
      render(){   
-         /*
-                <label>User Name <input type="text"  className="inTitleP" ref={input=>this.editeinputP=input} value={this.state.username}  onChange={e=>this.onChangeP(e.target.value)} /> <br/><br/></label>
-                <label>User e-mail <br/> <input  type="text"  className="inPeople" ref={input=>this.editeinputEP=input} value={this.state.email} onChange={e=>this.onChangeU(e.target.value)}  /></label><br/><br/>
-                       <button onClick={this.handleSubmitP.bind(this)}>Add </button>
-                    <br/>
-                            
-                    <button ><Link  to={'/'}>Cancel</Link>     </button>*/
-   /**/
+        
            return (
                <div>
                     New People<br/><br/>
@@ -132,7 +131,7 @@ const valIncorUrl="*Incorrect e-mail";
                     alt="Card image cap" className="avatar-block_img" />
 
                 </div>    
-                <div>  
+                <div className=".base-">  
                 <div > 
                         <div>UserName</div>
                        <input type="text"  className="inTitleP" ref={input=>this.editeinputP=input} value={this.state.username}  onChange={e=>this.onChangeP(e.target.value)} />
@@ -140,7 +139,7 @@ const valIncorUrl="*Incorrect e-mail";
                 </div>  
                     <div>
                      <div>People e-mail</div> 
-                      <Input  type="text"  className="inPeople" ref={input=>this.editeinputEP=input} value={this.state.email} onChange={e=>this.onChangeU(e.target.value)}  /> 
+                      <input  type="text"  className="inPeople" ref={input=>this.editeinputEP=input} value={this.state.email} onChange={e=>this.onChangeU(e.target.value)}  /> 
                       <div className="validEmail"> </div>
                    </div>
                     <br/>

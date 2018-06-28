@@ -1,13 +1,10 @@
 import React from 'react';
-import {Fragment} from 'react'
-
-//import firebase from 'firebase/app';
+ 
 import 'firebase/database';
-//import {DB_CONFIG} from './Firebass/db_config' 
+ 
 import Bookmark from './Bookmark/Bookmark'
 import {database} from './Firebass/db_config'
-import Button from '@material-ui/core/Button'
-import {Link} from 'react-router-dom'
+ import {Link} from 'react-router-dom'
 
 export default class WebbPart extends React.Component{
    
@@ -19,7 +16,8 @@ export default class WebbPart extends React.Component{
            showTitle: true
         }
 
-    }/*
+    }
+    /*
   shouldComponentUpdate(nextProps, nextState){
         console.log('shouldComponentUpdate'+nextProps+nextState);
        
@@ -58,12 +56,12 @@ export default class WebbPart extends React.Component{
 
      handleInSearch(e){
          const forS=this.state.forSearch;
-         console.log('forS'+forS);
+       
         const searchQuery=e.target.value.toLowerCase();
         const displayBookmark=forS.filter( item=>{
              console.log('bookmark.booktitile'+item.booktitle); 
-      const searchString=item.booktitle.toLowerCase();
-      return searchString.indexOf(searchQuery)!==-1;
+          const searchString=item.booktitle.toLowerCase();
+          return searchString.indexOf(searchQuery)!==-1;
   })
   this.setState({
      bookmarks:  displayBookmark
@@ -71,8 +69,7 @@ export default class WebbPart extends React.Component{
       }) 
      }
      render(){
-    
-     
+       
          const books=this.state.bookmarks.map((item,index)=>{
              console.log('books', books);
             return(

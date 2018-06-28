@@ -4,7 +4,7 @@ import './setting.css'
 import {database} from '../Firebass/db_config'
 import People  from '../People/People'
  import Apperance from './apperance'
- import ApperSwitch from './showBookmark'
+ 
  import Switch from "react-switch"
  import ChangeFont from './settingFontsize'
   import ChangeZoom from './settingZoom'
@@ -49,7 +49,7 @@ export default class SettingsPart extends React.Component{
                   people: prevPeople
                })
            }) 
-      //  console.log('cond'+cond);
+  
               
       }
       componentWillUnMount() {

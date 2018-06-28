@@ -1,9 +1,9 @@
  .container{
-     height: 1200px;
+     height: 1500px;
  }
 .settings-nav {
     float: left;
-     
+     cursor: pointer;
     font-size: 30px;
     width:  20%;
     height: 1200px;
@@ -13,7 +13,7 @@
      display: flex;
      padding-top: 50px;
      padding-bottom: 50px;
-     border: 1px solid;
+     border: 1px solid rgba(0,0,0,.3);
 } 
 .head h1{ 
     padding-left: 5%;
@@ -52,8 +52,11 @@
 
 .books{
     position: relative;
-    border: 1px solid rgba(0,0,0,.1);;
+    border: 1px solid rgba(0,0,0,.1);
     bottom: -55px;
+    -webkit-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
 }
 .books-link{
     display:flex;
@@ -147,4 +150,34 @@ display: flex;
 .edite-book_link{
     position: relative;
     bottom: -33px;
+}
+
+
+.art_pagin{
+    clear: both;
+}
+
+
+.nav{
+ margin: 30px 0 20px 0;    
+}
+
+.users-pagination{
+    margin-top: 0;
+}
+
+ .art_pagin .pull-right    {
+    float: left;
+    font-size: 1.5em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.art_pagin .pull-right li a{
+    padding: .5rem .75rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.art_pagin .pull-right li.active  a  {
+ 
+    background-color: #014c8c;
+    color: #fff;
 }

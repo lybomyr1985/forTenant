@@ -1,8 +1,8 @@
 import React from 'react'
- import $ from 'jquery'
+import $ from 'jquery'
 import {Link} from 'react-router-dom'
-  import {database} from '../Firebass/db_config'
-  import { Button,Input } from 'reactstrap';
+import {database} from '../Firebass/db_config'
+  import { Button,Input } from 'reactstrap' 
  
 
 export default class EditeBookMark extends React.Component{
@@ -40,7 +40,7 @@ export default class EditeBookMark extends React.Component{
     
      const booktitle=this.editeinputT.value;
     const bookurl=this.editeinputU.value;
-     const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+     const pattern = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
      console.log(booktitle,bookurl);
      if(booktitle==""){
          $('.validTitle').text(valEmtyString).css({color:'red'});
@@ -88,31 +88,27 @@ onChangeU(value){
 
      render(){
        const bbb=this.state.booktitle;
-       /*  
-                   <label> BookMark Title<input type="text"  value={this.state.booktitle} ref={input=>this.editeinputT=input} onChange={e=>this.onChangeT(e.target.value)}    /> <br/><br/></label>
-                   <label>BookMark Url <br/> <input type="text" value={this.state.bookurl} ref={input=>this.editeinputU=input} onChange={e=>this.onChangeU(e.target.value)}   /></label><br/><br/>
-                       <button onClick={this.handleSubmit.bind(this)}>Add </button>
-                    <br/>
-                        
-                    <button ><Link  to={'/'}>Cancel</Link>     </button>*/
-/**/
+      
            return (
-               <div>
+               <div className="base-addBookmark">
                     <h3>Edite BookMark</h3><br/><br/>
-                    <div className="base-addBookmark">
+                    <div className="base-edite-addBookmark">
                     New BookMark<br/><br/>
-                    
-                   <div > 
+                 <div>   
+                 <div className="base-edite-input"> 
                         <div>BookMark Title</div>
                        <input type="text"  value={this.state.booktitle} ref={input=>this.editeinputT=input} onChange={e=>this.onChangeT(e.target.value)} /> 
                         <div className="validTitle"> </div>
-                  </div>  
+                  
                     <div>
                      <div>BookMark Url</div> 
                        <input type="text" value={this.state.bookurl} ref={input=>this.editeinputU=input} onChange={e=>this.onChangeU(e.target.value)} />
                       <div className="validUrl"> </div>
                    </div>
+                    </div> 
+                   </div>
                     <br/>
+
                       <Button color="secondary" ><Link  to={'/'}>Cancel</Link>     </Button> 
                       <Button color="success" className="butt-addBook" onClick={this.handleSubmit.bind(this)}>Send</Button>        
                     

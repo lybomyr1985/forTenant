@@ -30,8 +30,7 @@ import './setting.css'
             default:
               alert( 'Я таких значений не знаю' );
           }	
-          
-          
+                 
     }    
      render(){
              return (

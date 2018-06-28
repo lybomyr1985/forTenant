@@ -11,12 +11,18 @@
     bottom: -22px;
 }
   
-.butt-addBook{
-
-}
+ 
 .base-addBookmark{
     bottom: -42%;
     position: relative;
  
     padding-left: 44%;
+}
+.base-edite-input{
+    width: 72%;
+
+}
+.base-edite-input_people{
+    width: 46%;
+
 }
