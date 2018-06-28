@@ -90,7 +90,7 @@ onChangeU(value){
        const bbb=this.state.booktitle;
       
            return (
-               <div className="base-addBookmark">
+               <div className="base-editeBookmark">
                     <h3>Edite BookMark</h3><br/><br/>
                     <div className="base-edite-addBookmark">
                     New BookMark<br/><br/>
